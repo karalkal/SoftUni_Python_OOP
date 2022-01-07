@@ -1,0 +1,82 @@
+from project.aquarium.saltwater_aquarium import SaltwaterAquarium
+from project.controller import Controller
+from project.decoration.ornament import Ornament
+from project.decoration.plant import Plant
+from project.fish.freshwater_fish import FreshwaterFish
+from project.fish.saltwater_fish import SaltwaterFish
+
+john = SaltwaterFish("John", "salt", 1.11)
+john1 = SaltwaterFish("John1", "salt", 1.11)
+john2 = SaltwaterFish("John2", "salt", 1.11)
+mike = FreshwaterFish("Mike", "fresh", 1.91)
+mike1 = FreshwaterFish("Mike1", "fresh", 1.91)
+mike2 = FreshwaterFish("Mike2", "fresh", 1.91)
+orn1 = Ornament()
+orn2 = Ornament()
+orn3 = Ornament()
+weed = Plant()
+weed1 = Plant()
+weed2 = Plant()
+
+aq1 = SaltwaterAquarium("SALT_AQ")
+print(aq1)
+print()
+aq1.add_fish(john)
+aq1.add_fish(john1)
+aq1.add_fish(john2)
+print(aq1)
+print()
+aq1.remove_fish(john)
+print(aq1)
+print()
+# aq1.remove_fish(john)
+# print(aq1)
+# print()
+aq1.add_decoration(orn1)
+aq1.add_decoration(orn1)
+print(aq1)
+print()
+aq1.add_decoration(weed1)
+aq1.add_decoration(weed2)
+print(aq1)
+print()
+
+for f in aq1.fish:
+    print(f"Name: {f.name}  -> Size: {f.size}")
+aq1.feed()
+for f in aq1.fish:
+    print(f"Name: {f.name}  -> Size: {f.size}")
+print()
+
+controller = Controller()
+print(controller.decorations_repository)
+print(controller.decorations_repository.decorations)
+print(controller.aquariums)
+print()
+
+controller.add_aquarium("FreshwaterAquarium", "FW1")
+print(controller.aquariums)
+controller.add_aquarium("Kur", "Kur")
+print(controller.aquariums)
+controller.add_aquarium("SaltwaterAquarium", "SW1")
+print(controller.aquariums)
+print()
+
+print(controller.decorations_repository.decorations)
+controller.add_decoration("Plant")
+print(controller.decorations_repository.decorations)
+controller.add_decoration("Plant")
+print(controller.decorations_repository.decorations)
+controller.add_decoration("Ornament")
+print(controller.decorations_repository.decorations)
+
+print(controller.insert_decoration("SW88", "Plant"))
+print(controller.insert_decoration("SW1", "Plant"))
+print(controller.decorations_repository.decorations)
+print(controller.insert_decoration("SW1", "Ornament"))
+print(controller.decorations_repository.decorations)
+print(controller.insert_decoration("SW1", "Plant"))
+print(controller.decorations_repository.decorations)
+print(controller.insert_decoration("SW1", "Plant"))
+print(controller.decorations_repository.decorations)
+print()
