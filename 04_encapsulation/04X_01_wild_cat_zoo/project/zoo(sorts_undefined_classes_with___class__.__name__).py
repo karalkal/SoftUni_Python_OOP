@@ -4,7 +4,7 @@ In this script we create a dict with keys which will be read from an object name
 In the problem I had to solve for SoftUni the keys were predefined, hence the other zoo.py file
 """
 
-from project.animal import Animal
+from project.animals.animal import Animal
 from project.worker import Worker
 
 
